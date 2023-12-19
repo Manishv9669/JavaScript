@@ -1,2 +1,3 @@
 # JavaScript
-For Practice
+For Practice 
+Author - Froggy
