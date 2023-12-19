@@ -1,4 +1,4 @@
 # JavaScript
 For Practice 
 <br>
-Author - Froggy
+Author - Froggy PRO
