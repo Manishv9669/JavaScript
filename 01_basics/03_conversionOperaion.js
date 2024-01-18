@@ -38,9 +38,9 @@ gameCounter++
 // console.log(gameCounter);
 
 let x = 3;
-let y = x++ + x++;
+let y = x++ + x++ + ++x;
 console.log(x , y);
 
-let a = 3;
-let z = ++a + ++a;
-console.log(a , z);
+// let a = 3;
+// let z = ++a + ++a;
+// console.log(a , z);
