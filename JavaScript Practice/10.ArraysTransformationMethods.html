@@ -40,6 +40,27 @@
         let totalMarks = marks.reduce((sum, val) => sum+val, 0);
         console.log(totalMarks);
 
+
+        let prices = [150, 299, 499, 129, 599];
+        let totalPrice = prices.filter(n=>n>=300).map(n=>n*0.9).reduce((sum, num)=>sum+num, 0);
+        console.log(totalPrice);
+
+
+        let students = [
+            {name: "Rahul", score: "85"},
+            {name: "Anita", score: "92"},
+            {name: "Vikram", score: "45"},
+            {name: "Sneha", score: "77"},
+            {name: "Manish", score: "59"}
+        ];
+
+        let passed = students.filter(student => Number(student.score)>=60);
+        console.log(passed);
+
+        passed.map(student => console.log(student.name,"passed with",student.score,"marks."));
+
+        let totalScore = passed.reduce((sum, num) => sum+Number(num.score),0);
+        console.log(totalScore);
     </Script>
 </body>
 </html>

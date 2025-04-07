@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+let students = [
+  { name: "Rahul", score: 85 },
+  { name: "Anita", score: 92 },
+  { name: "Vikram", score: 45 },
+  { name: "Sneha", score: 77 },
+  { name: "Manish", score: 59 }
+];
+
+students.sort((a, b) => a.score - b.score);
+console.log(students);
+
+students.sort((a, b) => a.name.localeCompare(b.name));
+console.log(students);
+
+students.sort((a, b) => b.score - a.score);
+console.log(students);
+
+
+let products = [
+  { name: "Laptop", price: 69999 },
+  { name: "Phone", price: 39999 },
+  { name: "Monitor", price: 15999 },
+  { name: "Keyboard", price: 1999 },
+  { name: "Mouse", price: 799 }
+];
+
+let asc = products.slice().sort((a,b) => a.price-b.price);
+console.log(asc);
+
+let desc = products.slice().sort((a,b) => b.price-a.price);
+console.log(desc);
+
+let byName = products.slice().sort((a,b) => a.name.localeCompare(b.name));
+console.log(byName);
+
+let productsName = products.map(product => product.name);
+console.log(productsName); 
+ 
+ </script>
+</body>
+</html>
