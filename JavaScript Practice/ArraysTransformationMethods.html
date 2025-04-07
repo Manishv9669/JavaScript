@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Script>
+
+        let numbers = [1,2,3,4];
+        let squared = numbers.map(num=>num*num);
+        console.log(squared);
+        
+        console.log("===========");
+        
+        let num = [10, 15, 20, 25];
+        let greaterThan15 = num.filter(n => n>15);
+        console.log(greaterThan15);
+        
+        console.log("===========");
+        
+        let total = numbers.reduce((sum, num) => sum+num,0);
+        console.log(total);
+        
+        console.log("===========");
+        
+        let marks = [65, 72, 89, 55, 48];
+        
+        let newMarks = marks.map(m => m+5);
+        console.log(newMarks);
+        
+        console.log("=========");
+        
+        let greaterThan60 = marks.filter(m => m>=60);
+        console.log(greaterThan60);
+        
+        console.log("=========");
+
+        let totalMarks = marks.reduce((sum, val) => sum+val, 0);
+        console.log(totalMarks);
+
+    </Script>
+</body>
+</html>

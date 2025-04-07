@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let numbers = [10, 20, 30, 40];
+        for (let i = 0; i < numbers.length; i++) {
+            console.log(numbers[i]);
+        }
+        
+        console.log("========");
+        
+        for (let num of numbers) {
+            console.log(num);
+        }
+        
+        console.log("========");
+        
+        numbers.forEach(function(num){
+            console.log(num);           
+        });
+
+        console.log("========");
+        
+        numbers.forEach((num)=>console.log(num));
+
+        console.log("-------------");
+        
+        let tech = ["HTML", "CSS", "JavaScript", "React"];
+        
+        for(let i=0; i<tech.length; i++)
+        {
+            console.log(tech[i]);
+        }
+        
+        console.log("-------------");
+        
+        for(let arr of tech)
+        {
+            console.log(arr);
+        }
+        
+        console.log("-------------");
+        
+        tech.forEach(function(arr){
+            console.log(arr);
+        });
+        
+        console.log("-------------");
+
+        tech.forEach((arr)=>console.log(arr));
+
+        </script>
+
+
+</body>
+
+</html>
