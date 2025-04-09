@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <h2 id="greet">Hello,</h2>
+
+    <script>
+
+        let input = document.getElementById("nameInput");
+        let greet = document.getElementById("greet");
+
+        input.addEventListener("input", function(){
+            greet.innerText = "Hello, " + input.value;
+        });
+
+    </script>
+</body>
+</html>
