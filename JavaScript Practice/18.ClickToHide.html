@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="text">Welcome to JavaScript!</h2>
+    <button id="btn">Hide</button>
+
+    <script>
+
+        let btn = document.getElementById("btn");
+        let text = document.getElementById("text");
+
+        btn.addEventListener("click", function(){
+            if(text.style.display === "none")
+        {
+            text.style.display = "block";
+            btn.innerText = "Hide";
+        }
+        else
+        {
+            text.style.display = "none";
+            btn.innerText = "Show";
+        }
+        });
+
+    </script>
+</body>
+</html>
