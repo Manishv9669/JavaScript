@@ -17,6 +17,7 @@
     
     <input type="text" id="taskInput" placeholder="Type your task and press Enter">
     <ul id="taskList"></ul>
+    <button onclick="clearTask()">Clear All</button>
 
     <script>
 
@@ -43,6 +44,9 @@
             }
         });
 
+        function clearTask(){
+            taskList.innerHTML = "";
+        }
     </script>
 
 </body>
