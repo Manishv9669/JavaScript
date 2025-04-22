@@ -10,6 +10,39 @@
         li{cursor: pointer; margin: 5px 0px;}
 
         .done{text-decoration: line-through; color: grey;}
+
+        /* Animation for new task */
+    @keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for deleting task */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+}
+
+/* Basic transitions for done task */
+li {
+    cursor: pointer;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    animation: fadeSlideIn 0.4s ease;
+}
+
+.done {
+    text-decoration: line-through;
+    color: grey;
+    transform: scale(0.98);
+}
+
     </style>
 </head>
 <body>
@@ -17,7 +50,7 @@
     
     <input type="text" id="taskInput" placeholder="Type your task and press Enter">
     <ul id="taskList"></ul>
-    <button onclick="clearTask()">Clear All</button>
+    <button onclick="clearTasks()">Clear All</button>
 
     <script>
 
@@ -29,6 +62,7 @@
                 let li = document.createElement("li");
                 li.innerText = taskInput.value;
                 taskList.appendChild(li);
+                saveTasks();
                 taskInput.value="";
 
                 //Mark as done on click
@@ -36,17 +70,72 @@
                     li.classList.toggle("done");
                 });
 
-                //Delete on Double-Click
-                li.addEventListener("dblclick", function(){
+                // Add double-click event to delete with animation
+                li.addEventListener("dblclick", () => {
+                li.classList.add("fade-out");
+                setTimeout(() => {
                     li.remove();
+                    saveTasks();
+                }, 400); // match with CSS transition duration
                 });
+
 
             }
         });
 
-        function clearTask(){
-            taskList.innerHTML = "";
+        function clearTasks() {
+        taskList.innerHTML = "";
+        localStorage.removeItem("tasks");
         }
+
+
+
+       
+        // Save tasks to localStorage
+function saveTasks() {
+    const tasks = [];
+    document.querySelectorAll("#taskList li").forEach(li => {
+        tasks.push({ 
+            text: li.textContent, 
+            done: li.classList.contains("done") 
+        });
+    });
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// Load tasks from localStorage on page load
+function loadTasks() {
+    const saved = localStorage.getItem("tasks");
+    if (saved) {
+        const tasks = JSON.parse(saved);
+        tasks.forEach(task => {
+            const li = document.createElement("li");
+            li.textContent = task.text;
+            if (task.done) li.classList.add("done");
+
+            // Add click event to toggle "done"
+            li.addEventListener("click", () => {
+                li.classList.toggle("done");
+                saveTasks();
+            });
+
+            // Add double-click event to delete with animation
+            li.addEventListener("dblclick", () => {
+                li.classList.add("fade-out");
+                setTimeout(() => {
+                    li.remove();
+                    saveTasks();
+                }, 400); // match with CSS transition duration
+            });
+
+
+            taskList.appendChild(li);
+        });
+    }
+}
+
+        loadTasks();
+
     </script>
 
 </body>
