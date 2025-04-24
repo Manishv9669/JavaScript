@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var product = {
+            name: "",
+            price: 0.0,
+            qty: 0,
+            total: function(){
+                return this.price*this.qty; 
+            },
+            print: function(){
+                document.write(`Name=${this.name}<br>Price=${this.price}<br>Qty=${this.qty}<br>Total=${this.total()}`); 
+
+            }
+        }
+        product.name=prompt("Enter the name: ");
+        product.price=parseFloat(prompt("Enter the price: "));
+        product.qty=parseInt(prompt("Enter the qty: "));
+        product.print();
+        
+    </script>
+</body>
+</html>
