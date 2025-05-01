@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var now = new Date();
+        var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        function setDate(){
+            document.getElementById("date").innerHTML=`
+            ${weekdays[now.getDay()]} ${now.getDate()} ${months[now.getMonth()]}, ${now.getFullYear()}
+            `;
+        }
+
+        function setTimer(){
+            var now = new Date();
+            document.getElementById("time").innerHTML=now.toLocaleTimeString();
+        }
+
+        function getStatus(){
+            var now = new Date();
+            var hrs = now.getHours();
+            var status = document.getElementById("status");
+
+            if(hrs>=0 && hrs<12)
+            {
+                status.innerHTML="Good Morning.";
+            }
+            else if(hrs>=12 && hrs<16)
+            {
+                status.innerHTML="Good AfterNoon.";
+            }
+            else if(hrs>=16 && hrs<20)
+            {
+                status.innerHTML="Good Evening.";
+            }
+            else
+            {
+                status.innerHTML="Good Night.";
+            }
+        }
+
+        function bodyload(){
+           setDate();
+           setInterval(setTimer,1000);
+           getStatus();
+        }
+
+
+        
+
+    </script>
+
+</head>
+<body onload="bodyload()">
+    
+    <p align="center" id="date"></p>
+    <p align="center" id="time"></p>
+    <p align="center" id="status"></p>
+
+
+</body>
+</html>
